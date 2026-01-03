@@ -3,7 +3,7 @@ import "./global.css";
 // ... other imports
 
 export const metadata = {
-  title: "My Website",
+  title: "AL Fateen",
   description: "Next.js migrated site",
 };
 

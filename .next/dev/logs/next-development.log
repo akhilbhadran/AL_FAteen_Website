@@ -17,3 +17,4 @@
 [00:00:14.172] Browser WARN    Image with src "/images/mobileimg2.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
 [00:00:21.792] Browser WARN    Image with src "/images/mobileimg3.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
 [01:16:11.252] Server  LOG     ✓ Compiled in 1083ms
+[01:24:24.756] Server  LOG     ✓ Compiled in 978ms
