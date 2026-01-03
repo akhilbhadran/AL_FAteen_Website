@@ -337,7 +337,8 @@ var _s = __turbopack_context__.k.signature();
 ;
 const slides = [
     {
-        imgMobile: '/images/Mobileimg1.png',
+        // FIXED: Changed to lowercase 'm' to match standard naming
+        imgMobile: '/images/mobileimg1.png',
         imgDesktop: '/images/img1.jpg',
         title: "Let's Make Your Space Shine",
         desc: 'Let our expert team bring a fresh, shining look to every corner.'
@@ -440,15 +441,17 @@ function HomePage() {
                                         fill: true,
                                         priority: current === 0,
                                         quality: 90,
+                                        // ADDED: Helps browser understand this is for full width
+                                        sizes: "100vw",
                                         className: `carousel-img ${isAnimating ? 'outgoing-zoom' : ''} object-cover object-center`
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Carousel.jsx",
-                                        lineNumber: 96,
+                                        lineNumber: 97,
                                         columnNumber: 18
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Carousel.jsx",
-                                    lineNumber: 95,
+                                    lineNumber: 96,
                                     columnNumber: 16
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -459,21 +462,22 @@ function HomePage() {
                                         fill: true,
                                         priority: current === 0,
                                         quality: 90,
+                                        sizes: "100vw",
                                         className: `carousel-img ${isAnimating ? 'outgoing-zoom' : ''} object-cover object-center`
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Carousel.jsx",
-                                        lineNumber: 107,
+                                        lineNumber: 110,
                                         columnNumber: 18
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Carousel.jsx",
-                                    lineNumber: 106,
+                                    lineNumber: 109,
                                     columnNumber: 16
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/Carousel.jsx",
-                            lineNumber: 93,
+                            lineNumber: 94,
                             columnNumber: 13
                         }, this),
                         isTransitioning && next !== null && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -487,15 +491,16 @@ function HomePage() {
                                         fill: true,
                                         priority: true,
                                         quality: 90,
+                                        sizes: "100vw",
                                         className: `carousel-img ${isAnimating ? 'incoming-wipe-left' : ''} object-cover object-center`
                                     }, `next-m-${next}`, false, {
                                         fileName: "[project]/src/components/Carousel.jsx",
-                                        lineNumber: 122,
+                                        lineNumber: 126,
                                         columnNumber: 20
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Carousel.jsx",
-                                    lineNumber: 121,
+                                    lineNumber: 125,
                                     columnNumber: 18
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -506,34 +511,35 @@ function HomePage() {
                                         fill: true,
                                         priority: true,
                                         quality: 90,
+                                        sizes: "100vw",
                                         className: `carousel-img ${isAnimating ? 'incoming-wipe-left' : ''} object-cover object-center`
                                     }, `next-d-${next}`, false, {
                                         fileName: "[project]/src/components/Carousel.jsx",
-                                        lineNumber: 133,
+                                        lineNumber: 138,
                                         columnNumber: 20
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Carousel.jsx",
-                                    lineNumber: 132,
+                                    lineNumber: 137,
                                     columnNumber: 18
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/Carousel.jsx",
-                            lineNumber: 120,
+                            lineNumber: 124,
                             columnNumber: 15
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/Carousel.jsx",
-                    lineNumber: 91,
+                    lineNumber: 92,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/60 z-20 pointer-events-none"
                 }, void 0, false, {
                     fileName: "[project]/src/components/Carousel.jsx",
-                    lineNumber: 149,
+                    lineNumber: 154,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -547,7 +553,7 @@ function HomePage() {
                                     children: slides[current].title
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Carousel.jsx",
-                                    lineNumber: 157,
+                                    lineNumber: 160,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -555,13 +561,13 @@ function HomePage() {
                                     children: slides[current].desc
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Carousel.jsx",
-                                    lineNumber: 160,
+                                    lineNumber: 163,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/Carousel.jsx",
-                            lineNumber: 156,
+                            lineNumber: 159,
                             columnNumber: 11
                         }, this),
                         isAnimating && next !== null && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -574,7 +580,7 @@ function HomePage() {
                                         children: slides[next].title
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Carousel.jsx",
-                                        lineNumber: 169,
+                                        lineNumber: 172,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -582,24 +588,24 @@ function HomePage() {
                                         children: slides[next].desc
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Carousel.jsx",
-                                        lineNumber: 172,
+                                        lineNumber: 175,
                                         columnNumber: 19
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/Carousel.jsx",
-                                lineNumber: 168,
+                                lineNumber: 171,
                                 columnNumber: 16
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/components/Carousel.jsx",
-                            lineNumber: 167,
+                            lineNumber: 170,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/Carousel.jsx",
-                    lineNumber: 154,
+                    lineNumber: 157,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -609,23 +615,23 @@ function HomePage() {
                             className: `h-1.5 md:h-2 rounded-full transition-all duration-300 shadow-sm ${idx === current ? 'w-8 bg-white' : 'w-2 bg-white/40 hover:bg-white/70'}`
                         }, idx, false, {
                             fileName: "[project]/src/components/Carousel.jsx",
-                            lineNumber: 183,
+                            lineNumber: 186,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/src/components/Carousel.jsx",
-                    lineNumber: 181,
+                    lineNumber: 184,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/Carousel.jsx",
-            lineNumber: 85,
+            lineNumber: 86,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/Carousel.jsx",
-        lineNumber: 84,
+        lineNumber: 85,
         columnNumber: 5
     }, this);
 }

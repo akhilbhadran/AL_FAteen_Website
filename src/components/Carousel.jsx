@@ -6,7 +6,8 @@ import '../styles/carousel.css';
 
 const slides = [
   {
-    imgMobile: '/images/Mobileimg1.png',   
+    // FIXED: Changed to lowercase 'm' to match standard naming
+    imgMobile: '/images/mobileimg1.png',   
     imgDesktop: '/images/img1.jpg', 
     title: "Let's Make Your Space Shine",
     desc: 'Let our expert team bring a fresh, shining look to every corner.',
@@ -98,7 +99,9 @@ export default function HomePage() {
                    alt={slides[current].title}
                    fill
                    priority={current === 0} 
-                   quality={90} // Added for sharpness
+                   quality={90}
+                   // ADDED: Helps browser understand this is for full width
+                   sizes="100vw"
                    className={`carousel-img ${isAnimating ? 'outgoing-zoom' : ''} object-cover object-center`}
                  />
                </div>
@@ -109,7 +112,8 @@ export default function HomePage() {
                    alt={slides[current].title}
                    fill
                    priority={current === 0} 
-                   quality={90} // Added for sharpness
+                   quality={90}
+                   sizes="100vw"
                    className={`carousel-img ${isAnimating ? 'outgoing-zoom' : ''} object-cover object-center`}
                  />
                </div>
@@ -125,7 +129,8 @@ export default function HomePage() {
                      alt={slides[next].title}
                      fill
                      priority 
-                     quality={90} // Added for sharpness
+                     quality={90}
+                     sizes="100vw"
                      className={`carousel-img ${isAnimating ? 'incoming-wipe-left' : ''} object-cover object-center`}
                    />
                  </div>
@@ -136,7 +141,8 @@ export default function HomePage() {
                      alt={slides[next].title}
                      fill
                      priority 
-                     quality={90} // Added for sharpness
+                     quality={90}
+                     sizes="100vw"
                      className={`carousel-img ${isAnimating ? 'incoming-wipe-left' : ''} object-cover object-center`}
                    />
                  </div>
@@ -144,13 +150,10 @@ export default function HomePage() {
             )}
         </div>
 
-        {/* ================= 2. GRADIENT (TINTED) ================= */}
-        {/* Tinted top for Header visibility, dark bottom for Text readability */}
+        {/* ================= 2. GRADIENT ================= */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/60 z-20 pointer-events-none" />
 
         {/* ================= 3. TEXT CONTAINER ================= */}
-        
-        {/* === CURRENT TEXT WRAPPER === */}
         <div className="absolute inset-0 z-30 flex flex-col justify-end items-start pl-6 pr-8 pb-50 md:pl-30 md:pr-30 md:pb-44 pointer-events-none ">
           
           <div className={`${isAnimating ? 'animate-captionExit' : ''} w-full max-w-3xl text-left`}>
@@ -162,7 +165,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* === NEXT TEXT WRAPPER (ANIMATION) === */}
+          {/* NEXT TEXT WRAPPER */}
           {isAnimating && next !== null && (
             <div className="absolute inset-0 flex flex-col justify-end items-start pl-6 pr-8 pb-50 md:pl-30 md:pb-44 w-full h-full">
                <div className="animate-captionEnter w-full max-w-3xl text-left">
