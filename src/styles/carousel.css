@@ -1,0 +1,103 @@
+/* This holds the full-screen container */
+#carousel {
+  position: relative; /* <--- CHANGE THIS from 'fixed' to 'relative' */
+  height: 100vh;      /* This makes it take up the full screen height */
+  width: 100%;
+  overflow: hidden;
+  background-color: black;
+}
+
+/* This is the individual image */
+.carousel-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Hardware acceleration */
+  will-change: transform, opacity, clip-path;
+  backface-visibility: hidden;
+}
+
+/* 1. The PREVIOUS image zooms IN */
+@keyframes outgoingZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
+/* 2. The NEXT image wipes in from the right AND zooms OUT */
+@keyframes incomingWipeLeft {
+  from {
+    /* Start fully hidden on the right */
+    clip-path: inset(0 0 0 100%);
+    /* Start zoomed in */
+    transform: scale(1.2);
+  }
+  to {
+    /* End fully visible */
+    clip-path: inset(0 0 0 0);
+    /* End at normal size */
+    transform: scale(1);
+  }
+}
+
+/* Classes to trigger the animations */
+.outgoing-zoom {
+  /* The 2.2s duration from your file */
+  animation: outgoingZoom 2.2s ease-in-out forwards;
+}
+
+.incoming-wipe-left {
+  animation: incomingWipeLeft 2.2s ease-out forwards;
+}
+
+/* Text caption animations from your file */
+.carousel-caption {
+  position: absolute;
+  left: 10%;
+  bottom: 25%;
+  width: 100%;
+  margin-bottom: 300px;
+  max-width: 1000px;
+  z-index: 30;
+  color: white;
+  text-align: left;
+}
+
+.caption-content {
+  position: absolute; /* Allows fading between captions */
+  width: 100%;
+}
+
+@keyframes captionEnter {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes captionExit {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+}
+
+.animate-captionEnter {
+  animation: captionEnter 1.8s ease-out forwards;
+}
+
+.animate-captionExit {
+  animation: captionExit 1.8s ease-out forwards;
+}

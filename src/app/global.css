@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+
+
+/* The Fix for Bouncing/Stretching */
+html, body {
+ 
+  /* This stops the "rubber band" bounce effect */
+  overscroll-behavior: none; 
+  
+  /* Optional: Makes scrolling feel nicer */
+  scroll-behavior: smooth;
+}
