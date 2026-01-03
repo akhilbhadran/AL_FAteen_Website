@@ -65,3 +65,4 @@ Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
 [00:12:26.335] Server  LOG     ✓ Compiled in 562ms
 [00:12:27.067] Browser WARN    Image with src "/images/hero-clean-villa.png" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[01:01:01.611] Server  LOG     ✓ Compiled in 530ms
