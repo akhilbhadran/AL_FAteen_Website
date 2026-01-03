@@ -6,20 +6,22 @@ import '../styles/carousel.css';
 
 const slides = [
   {
-    // FIXED: Changed to lowercase 'm' to match standard naming
-    imgMobile: '/images/mobileimg1.png',   
+    // New Name
+    imgMobile: '/images/mob-1.png',   
     imgDesktop: '/images/img1.jpg', 
     title: "Let's Make Your Space Shine",
     desc: 'Let our expert team bring a fresh, shining look to every corner.',
   },
   {
-    imgMobile: '/images/mobileimg2.png',
+    // New Name
+    imgMobile: '/images/mob-2.png',
     imgDesktop: '/images/img2.jpg',
     title: 'Latest Equipment',
     desc: 'Expert cleaning and reliable pest control.',
   },
   {
-    imgMobile: '/images/mobileimg3.png',
+    // New Name
+    imgMobile: '/images/mob-3.png',
     imgDesktop: '/images/img3.jpg',
     title: 'Cleaning Excellence!',
     desc: 'We go above and beyond to deliver impeccable results every time.',
