@@ -1,0 +1,19 @@
+[00:00:02.419] Server  LOG     
+[00:00:02.420] Server  LOG       We detected TypeScript in your project and reconfigured your tsconfig.json file for you. Strict-mode is set to false by default.
+[00:00:02.420] Server  LOG       The following suggested values were added to your tsconfig.json. These values can be changed to fit your project's needs:
+
+[00:00:02.420] Server  LOG       	- include was updated to add '.next/dev/types/**/*.ts'
+[00:00:02.420] Server  LOG     
+[00:00:02.420] Server  LOG       The following mandatory changes were made to your tsconfig.json:
+
+[00:00:02.420] Server  LOG       	- jsx was set to react-jsx (next.js uses the React automatic runtime)
+[00:00:02.421] Server  LOG     
+[00:00:02.574] Server  LOG     ✓ Ready in 2.4s
+[00:00:06.210] Server  LOG     ○ Compiling / ...
+[00:00:08.604] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:00:08.711] Browser WARN    Image with src "/images/logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:09.358] Browser WARN    Image with src "/images/Mobileimg1.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:10.484] Server  LOG     ✅ MongoDB Connected
+[00:00:14.172] Browser WARN    Image with src "/images/mobileimg2.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:21.792] Browser WARN    Image with src "/images/mobileimg3.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:16:11.252] Server  LOG     ✓ Compiled in 1083ms

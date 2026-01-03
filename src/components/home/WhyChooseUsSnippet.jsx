@@ -33,7 +33,7 @@ const features = [
     label: "Technology",
     title: "Eco-Friendly Science",
     desc: "Advanced Integrated Pest Management (IPM). Tough on impurities, completely safe for children, pets, and your sanctuary.",
-    img: "/images/service-pest.jpg", 
+    img: "/images/service-pest.png", 
     icon: Leaf,
   },
   {
