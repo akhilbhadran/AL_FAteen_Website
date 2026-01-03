@@ -1,39 +1,23 @@
 "use client";
 
 import { useRef, useState } from "react";
-// Replaced Next.js specific imports to ensure stability in preview
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from "framer-motion";
 import { 
   ArrowRight, Star, Sparkles, Shield, 
   Target, Users, BookOpen, Bug, Droplets, Construction, Sofa, Eye, Check,
-  ArrowUpRight, Quote, Facebook, Instagram, Linkedin, Phone, Mail
+  ArrowUpRight, Quote, Facebook, Instagram, Linkedin, Phone, Mail, ArrowDown
 } from "lucide-react";
 import ZoomOutGallery from "./ZoomOutGallery";
 import Header from "../../components/Header"; 
 import "../global.css";
 
-// --- MOCK NEXT.JS MODULES FOR PREVIEW ENVIRONMENT ---
+// --- FIX 1: IMPORT REAL NEXT.JS IMAGE COMPONENT ---
+import Image from "next/image";
 
-const playfair = { className: "font-serif" };
-const manrope = { className: "font-sans" };
-
-const Image = ({ src, alt, className, fill, ...props }) => {
-  return (
-    <img 
-      src={src} 
-      alt={alt} 
-      className={`${className || ''} ${fill ? 'absolute inset-0 w-full h-full' : ''}`}
-      {...props}
-    />
-  );
-};
-
-// Standard Link component
-const Link = ({ href, children, className, ...props }) => (
-  <a href={href} className={className} {...props}>
-    {children}
-  </a>
-);
+// --- FIX 2: IMPORT FONTS PROPERLY (If not already in layout.js) ---
+import { Playfair_Display, Manrope } from 'next/font/google';
+const playfair = Playfair_Display({ subsets: ['latin'] });
+const manrope = Manrope({ subsets: ['latin'] });
 
 // --- ANIMATIONS ---
 function FadeUp({ children, delay = 0, className = "" }) {
@@ -58,45 +42,27 @@ function CinematicImage({ src, alt }) {
   const y = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
 
   return (
-    // Reduced height from h-[800px] to h-[500px]
     <div ref={ref} className="relative w-full h-[400px] lg:h-[500px] overflow-hidden rounded-2xl bg-slate-200 shadow-xl">
       <motion.div style={{ y, scale: 1.1 }} className="absolute inset-0 w-full h-[120%] -top-[10%]">
-        <Image src={src} alt={alt} fill className="object-cover" />
+        {/* Optimized Cinematic Image */}
+        <Image 
+          src={src} 
+          alt={alt} 
+          fill 
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
       </motion.div>
     </div>
   );
 }
 
-// --- HOVER CARD ---
-const ServiceCard = ({ icon: Icon, title, desc, delay }) => {
-  return (
-    <FadeUp delay={delay}>
-      <div className="group relative bg-white p-8 rounded-2xl shadow-md border border-slate-100 overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
-        <div className="absolute inset-0 bg-red-900 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out"></div>
-        <div className="relative z-10">
-          <Icon className="w-8 h-8 text-red-900 mb-4 transition-colors duration-500 group-hover:text-white" />
-          <h4 className="text-2xl font-serif text-slate-900 mb-3 transition-colors duration-500 group-hover:text-white">{title}</h4>
-          <p className="text-sm md:text-base text-slate-600 leading-relaxed transition-colors duration-500 group-hover:text-slate-200">{desc}</p>
-        </div>
-      </div>
-    </FadeUp>
-  )
-}
-
-const DarkServiceCard = ({ icon: Icon, title, desc, delay }) => {
-  return (
-    <FadeUp delay={delay}>
-      <div className="group relative bg-[#151515] p-8 rounded-2xl shadow-md border border-white/10 overflow-hidden transition-all duration-500 hover:shadow-red-900/20 hover:-translate-y-1">
-        <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out"></div>
-        <div className="relative z-10">
-          <Icon className="w-8 h-8 text-red-600 mb-4 transition-colors duration-500 group-hover:text-red-900" />
-          <h4 className="text-2xl font-serif text-white mb-3 transition-colors duration-500 group-hover:text-slate-900">{title}</h4>
-          <p className="text-sm md:text-base text-slate-400 leading-relaxed transition-colors duration-500 group-hover:text-slate-600">{desc}</p>
-        </div>
-      </div>
-    </FadeUp>
-  )
-}
+// Standard Link component
+const Link = ({ href, children, className, ...props }) => (
+  <a href={href} className={className} {...props}>
+    {children}
+  </a>
+);
 
 export default function AlFateenFinal() {
   const { scrollY } = useScroll();
@@ -109,16 +75,20 @@ export default function AlFateenFinal() {
       {/* ================= 1. HERO ================= */}
       <section className="relative h-screen min-h-[600px] w-full overflow-hidden bg-black flex items-center justify-center">
         <motion.div style={{ y: heroY }} className="absolute inset-0 z-0">
+           <div className="absolute inset-0 bg-neutral-950/20 z-10" />
+           {/* --- FIX 3: HERO IMAGE OPTIMIZED FOR SPEED --- */}
            <Image 
              src="/images/hero-clean-villa.png" 
              alt="Al Fateen Cleaning Services" 
              fill 
+             priority={true} // Downloads immediately
+             quality={90}    // High quality for large screen
              className="object-cover opacity-60" 
            />
-           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/40"></div>
+           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/40 z-10"></div>
         </motion.div>
 
-        <div className="relative z-10 w-full max-w-5xl px-6 text-center">
+        <div className="relative z-20 w-full max-w-5xl px-6 text-center">
             <FadeUp>
                <div className="inline-flex items-center gap-2 border border-white/30 bg-white/10 backdrop-blur-md px-6 py-2 rounded-full mb-8">
                   <Star className="w-4 h-4 text-red-600 fill-current" />
@@ -198,38 +168,74 @@ export default function AlFateenFinal() {
       </section>
 
 
-      {/* ================= 4. OUR SERVICES ================= */}
-      <section className="bg-slate-50 py-24 border-t border-slate-200">
+      {/* ================= 4. OUR SERVICES (Gateway Style) ================= */}
+      <section className="bg-slate-50 py-20 border-t border-slate-200">
          <div className="w-full max-w-7xl px-6 mx-auto">
             <FadeUp>
-               <h2 className={`${playfair.className} text-5xl md:text-6xl text-slate-900 mb-16 text-center`}>Our Expertise</h2>
+               <div className="text-center mb-16">
+                  <h2 className={`${playfair.className} text-5xl md:text-6xl text-slate-900 mb-6`}>Our Expertise</h2>
+                  <p className="text-lg text-slate-600 font-light max-w-2xl mx-auto">
+                    We specialize in two core disciplines. Select a division to view detailed services.
+                  </p>
+               </div>
             </FadeUp>
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
-               {/* LEFT COLUMN */}
-               <div>
-                  <div className="mb-8 flex items-center gap-4 border-b border-slate-200 pb-4">
-                     <Sparkles className="w-8 h-8 text-red-900" />
-                     <h3 className={`${playfair.className} text-3xl text-slate-900`}>Cleaning Division</h3>
-                  </div>
-                  <div className="space-y-6">
-                     <ServiceCard delay={0.1} icon={Construction} title="Villa Restoration" desc="Deep cleaning for newly constructed villas. Removing cement residue, paint marks, and deep dust." />
-                     <ServiceCard delay={0.2} icon={Droplets} title="Floor Polishing" desc="Restoring mirror-shine to Marble, Granite, and Wooden Parquet using specialized crystallization techniques." />
-                     <ServiceCard delay={0.3} icon={Sofa} title="Upholstery Care" desc="Deep shampooing and steam extraction for sofas, carpets, and curtains." />
-                  </div>
-               </div>
-               {/* RIGHT COLUMN */}
-               <div>
-                  <div className="mb-8 flex items-center gap-4 border-b border-slate-300 pb-4">
-                     <Shield className="w-8 h-8 text-slate-900" />
-                     <h3 className={`${playfair.className} text-3xl text-slate-900`}>Pest Control</h3>
-                  </div>
-                  <div className="space-y-6">
-                     <DarkServiceCard delay={0.1} icon={Bug} title="Termite Proofing" desc="Scientific chemical treatment creating a barrier beneath foundations (Pre & Post)." />
-                     <DarkServiceCard delay={0.2} icon={Target} title="Rodent Control" desc="Using biological control and mechanical techniques like Pulse Baiting Systems." />
-                     <DarkServiceCard delay={0.3} icon={BookOpen} title="IPM Strategy" desc="We follow Integrated Pest Management principles, focusing on long-term balanced solutions." />
-                  </div>
-               </div>
+
+            {/* SPLIT GATEWAY CARDS - Link to /services top */}
+            <div className="grid md:grid-cols-2 gap-6 lg:gap-12">
+               
+               {/* Card 1: Cleaning */}
+               <FadeUp delay={0.1}>
+                  <Link href="/services" className="group block relative h-[350px] w-full overflow-hidden rounded-3xl bg-white shadow-lg border border-slate-200 hover:shadow-2xl transition-all duration-500">
+                     <div className="absolute inset-0 bg-gradient-to-br from-white via-slate-50 to-slate-200 group-hover:scale-105 transition-transform duration-700"></div>
+                     <div className="absolute inset-0 p-10 flex flex-col justify-between">
+                        <div>
+                           <div className="w-14 h-14 bg-red-900 rounded-2xl flex items-center justify-center mb-6 shadow-red-900/20 shadow-xl group-hover:-translate-y-2 transition-transform duration-500">
+                              <Sparkles className="w-7 h-7 text-white" />
+                           </div>
+                           <h3 className={`${playfair.className} text-3xl md:text-4xl text-slate-900 mb-3`}>Cleaning Division</h3>
+                           <p className="text-slate-600 leading-relaxed">
+                              Deep cleaning, floor polishing, and hygiene maintenance for villas and offices.
+                           </p>
+                        </div>
+                        <div className="flex items-center gap-3 text-red-900 font-bold uppercase tracking-widest text-sm group-hover:gap-5 transition-all">
+                           Explore Cleaning <ArrowRight className="w-4 h-4" />
+                        </div>
+                     </div>
+                  </Link>
+               </FadeUp>
+
+               {/* Card 2: Pest Control */}
+               <FadeUp delay={0.2}>
+                  <Link href="/services" className="group block relative h-[350px] w-full overflow-hidden rounded-3xl bg-[#151515] shadow-lg hover:shadow-2xl transition-all duration-500">
+                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-slate-800 to-[#0a0a0a] group-hover:scale-105 transition-transform duration-700"></div>
+                     <div className="absolute inset-0 p-10 flex flex-col justify-between">
+                        <div>
+                           <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-6 border border-white/10 group-hover:-translate-y-2 transition-transform duration-500">
+                              <Shield className="w-7 h-7 text-white" />
+                           </div>
+                           <h3 className={`${playfair.className} text-3xl md:text-4xl text-white mb-3`}>Pest Control</h3>
+                           <p className="text-slate-400 leading-relaxed">
+                              Scientific pest management (IPM), termite proofing, and rodent control.
+                           </p>
+                        </div>
+                        <div className="flex items-center gap-3 text-white font-bold uppercase tracking-widest text-sm group-hover:gap-5 transition-all">
+                           Explore Pest Control <ArrowRight className="w-4 h-4" />
+                        </div>
+                     </div>
+                  </Link>
+               </FadeUp>
+
             </div>
+
+            {/* VISUAL FLOW CONNECTOR */}
+            <FadeUp delay={0.4}>
+               <div className="mt-16 flex flex-col items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500 mb-2">
+                     Our Methodology
+                  </span>
+                  <ArrowDown className="w-5 h-5 text-red-900 animate-bounce" />
+               </div>
+            </FadeUp>
          </div>
       </section>
 
@@ -285,7 +291,22 @@ export default function AlFateenFinal() {
               </div>
           </div>
           
-    
+          <FadeUp delay={0.4}>
+            <div className="mt-16 pt-8 border-t border-slate-800">
+              <div className="flex flex-col xl:flex-row items-start xl:items-center justify-between gap-6">
+                  <div>
+                    <h4 className="text-2xl font-serif mb-2">Our Service Coverage</h4>
+                    <p className="text-base text-slate-400">Supporting short-term and long-term contracts.</p>
+                  </div>
+                  <div className="flex flex-wrap gap-3 justify-start xl:justify-end">
+                    <span className="bg-red-900 text-white px-6 py-2 rounded-full text-sm font-bold">Ras Al Khaimah</span>
+                    {["Homes & Villas", "Offices", "Warehouses", "Labor Accommodations"].map((tag) => (
+                        <span key={tag} className="bg-white/10 text-white px-5 py-2 rounded-full text-sm border border-white/10">{tag}</span>
+                    ))}
+                  </div>
+              </div>
+            </div>
+          </FadeUp>
         </div>
       </section>
 

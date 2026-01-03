@@ -98,6 +98,7 @@ export default function HomePage() {
                    alt={slides[current].title}
                    fill
                    priority={current === 0} 
+                   quality={90} // Added for sharpness
                    className={`carousel-img ${isAnimating ? 'outgoing-zoom' : ''} object-cover object-center`}
                  />
                </div>
@@ -108,6 +109,7 @@ export default function HomePage() {
                    alt={slides[current].title}
                    fill
                    priority={current === 0} 
+                   quality={90} // Added for sharpness
                    className={`carousel-img ${isAnimating ? 'outgoing-zoom' : ''} object-cover object-center`}
                  />
                </div>
@@ -123,6 +125,7 @@ export default function HomePage() {
                      alt={slides[next].title}
                      fill
                      priority 
+                     quality={90} // Added for sharpness
                      className={`carousel-img ${isAnimating ? 'incoming-wipe-left' : ''} object-cover object-center`}
                    />
                  </div>
@@ -133,6 +136,7 @@ export default function HomePage() {
                      alt={slides[next].title}
                      fill
                      priority 
+                     quality={90} // Added for sharpness
                      className={`carousel-img ${isAnimating ? 'incoming-wipe-left' : ''} object-cover object-center`}
                    />
                  </div>
@@ -141,7 +145,7 @@ export default function HomePage() {
         </div>
 
         {/* ================= 2. GRADIENT (TINTED) ================= */}
-        {/* Changed to tint the top (for header) and bottom (for text) */}
+        {/* Tinted top for Header visibility, dark bottom for Text readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/60 z-20 pointer-events-none" />
 
         {/* ================= 3. TEXT CONTAINER ================= */}

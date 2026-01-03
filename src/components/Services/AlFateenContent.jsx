@@ -9,9 +9,11 @@ import {
   ScanLine, Waves, Scale,
   Loader2, Calendar, Phone, Mail, MapPin, 
   Facebook, Instagram, Linkedin, Twitter,
-  MessageCircle // Added MessageCircle for the WhatsApp button
+  MessageCircle 
 } from "lucide-react";
 import Link from "next/link";
+// --- FIX 1: Import Next.js Image Component ---
+import Image from "next/image";
 
 // Import your server action
 import { submitContactForm } from "../../app/actions/contact";
@@ -113,7 +115,14 @@ const ServiceVisual = ({ type, icon: Icon, image }) => {
     <div ref={ref} className="h-[280px] md:h-[340px] w-full bg-[#fbfbfd] rounded-xl overflow-hidden relative border border-black/5 group-hover:border-[#800000]/20 transition-colors duration-700 shadow-sm">
       {image ? (
         <div className="absolute inset-0 z-0">
-          <img src={image} alt={type} className="w-full h-full object-cover grayscale-0 opacity-80 group-hover:scale-105 group-hover:opacity-30 transition-all duration-[1.5s] ease-out" />
+          {/* --- FIX 2: Optimized Service Images --- */}
+          <Image 
+            src={image} 
+            alt={type} 
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw" // Tells browser to load smaller version on mobile
+            className="object-cover grayscale-0 opacity-80 group-hover:scale-105 group-hover:opacity-30 transition-all duration-[1.5s] ease-out" 
+          />
           <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-700" />
         </div>
       ) : (
@@ -136,7 +145,7 @@ const ServiceVisual = ({ type, icon: Icon, image }) => {
   );
 };
 
-// --- 5. REUSABLE SERVICE ROW (UPDATED) ---
+// --- 5. REUSABLE SERVICE ROW ---
 const ServiceRow = ({ id, title, description, features, visualType, icon, image, dark = false, onBookClick }) => (
   <div id={id} className="group relative py-10 md:py-14 scroll-mt-20">
     <div className="absolute top-0 left-0 w-full px-5 md:px-10">
@@ -164,7 +173,6 @@ const ServiceRow = ({ id, title, description, features, visualType, icon, image,
             
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4">
-               {/* Button 1: Scrolls to Form & Selects Service */}
                <button 
                  onClick={onBookClick}
                  className={`px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 flex items-center gap-2 border
@@ -176,8 +184,7 @@ const ServiceRow = ({ id, title, description, features, visualType, icon, image,
                  Book This Service <Calendar size={14} />
                </button>
 
-               {/* Button 2: WhatsApp (Replaces the broken 'Inquire' link) */}
-               {/* This opens WhatsApp directly. Number format: 971 + 52 + 8326933 (Drop the 0) */}
+               {/* WhatsApp Button */}
                <a 
                  href="https://wa.me/971528326933?text=Hi,%20I%20am%20interested%20in%20your%20services."
                  target="_blank"
@@ -206,70 +213,113 @@ const ServiceRow = ({ id, title, description, features, visualType, icon, image,
 );
 
 // --- 6. NAVIGATION FOOTER ---
-const NavigationFooter = () => (
-  <footer className="bg-[#0f0f11] text-gray-400 py-16 border-t border-white/5 text-sm">
-    <WideContainer>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
-        
-        {/* Column 1: Brand */}
-        <div className="col-span-2 md:col-span-1">
-          <h5 className="text-white font-bold uppercase tracking-widest mb-4">Al Fateen</h5>
-          <p className="font-light leading-relaxed mb-6">
-            Redefining hygiene and pest defense standards across the UAE with precision and care.
-          </p>
-          <div className="flex gap-4">
-             <a href="#" className="hover:text-white transition-colors"><Facebook size={20} /></a>
-             <a href="#" className="hover:text-white transition-colors"><Instagram size={20} /></a>
-             <a href="#" className="hover:text-white transition-colors"><Linkedin size={20} /></a>
+const NavigationFooter = () => {
+  // Handler for smooth scrolling
+  const scrollToSection = (e, id) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <footer className="bg-[#0f0f11] text-gray-400 py-16 border-t border-white/5 text-sm">
+      <WideContainer>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+          
+          {/* Column 1: Brand */}
+          <div className="col-span-2 md:col-span-1">
+            <h5 className="text-white font-bold uppercase tracking-widest mb-4">Al Fateen</h5>
+            <p className="font-light leading-relaxed mb-6">
+              Redefining hygiene and pest defense standards across the UAE with precision and care.
+            </p>
+            <div className="flex gap-4">
+               <a href="#" className="hover:text-white transition-colors"><Facebook size={20} /></a>
+               <a href="#" className="hover:text-white transition-colors"><Instagram size={20} /></a>
+               <a href="#" className="hover:text-white transition-colors"><Linkedin size={20} /></a>
+            </div>
+          </div>
+
+          {/* Column 2: Navigation */}
+          <div>
+            <h5 className="text-white font-bold uppercase tracking-widest mb-4">Explore</h5>
+            <ul className="space-y-3">
+              <li><Link href="/" className="hover:text-[#800000] transition-colors">Home</Link></li>
+              <li><Link href="/about" className="hover:text-[#800000] transition-colors">About Us</Link></li>
+              <li><Link href="/contact" className="hover:text-[#800000] transition-colors">Contact</Link></li>
+              <li><Link href="/faq" className="hover:text-[#800000] transition-colors">FAQs</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 3: Cleaning */}
+          <div>
+            <h5 className="text-white font-bold uppercase tracking-widest mb-4">Cleaning</h5>
+            <ul className="space-y-4 text-sm text-slate-400">
+               <li>
+                 <a href="#floor-care" onClick={(e) => scrollToSection(e, 'floor-care')} className="hover:text-white transition-colors cursor-pointer block">
+                   Floor Polishing
+                 </a>
+               </li>
+               <li>
+                 <a href="#villa-deep-clean" onClick={(e) => scrollToSection(e, 'villa-deep-clean')} className="hover:text-white transition-colors cursor-pointer block">
+                   Residential Deep Clean
+                 </a>
+               </li>
+               <li>
+                 <a href="#glass-cleaning" onClick={(e) => scrollToSection(e, 'glass-cleaning')} className="hover:text-white transition-colors cursor-pointer block">
+                   Glass & Façade
+                 </a>
+               </li>
+               <li>
+                 <a href="#pool-maintenance" onClick={(e) => scrollToSection(e, 'pool-maintenance')} className="hover:text-white transition-colors cursor-pointer block">
+                   Swimming Pools
+                 </a>
+               </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Pest Control */}
+          <div>
+            <h5 className="text-white font-bold uppercase tracking-widest mb-4">Pest Control</h5>
+            <ul className="space-y-4 text-sm text-slate-400">
+               <li>
+                 <a href="#termite-control" onClick={(e) => scrollToSection(e, 'termite-control')} className="hover:text-white transition-colors cursor-pointer block">
+                   Termite Treatment
+                 </a>
+               </li>
+               <li>
+                 <a href="#rodent-control" onClick={(e) => scrollToSection(e, 'rodent-control')} className="hover:text-white transition-colors cursor-pointer block">
+                   Rodent Control
+                 </a>
+               </li>
+               <li>
+                 <a href="#insect-control" onClick={(e) => scrollToSection(e, 'insect-control')} className="hover:text-white transition-colors cursor-pointer block">
+                   General De-bugging
+                 </a>
+               </li>
+               <li>
+                 <a href="#corporate-contracts" onClick={(e) => scrollToSection(e, 'corporate-contracts')} className="hover:text-white transition-colors cursor-pointer block">
+                   Annual Contracts
+                 </a>
+               </li>
+            </ul>
           </div>
         </div>
 
-        {/* Column 2: Navigation */}
-        <div>
-          <h5 className="text-white font-bold uppercase tracking-widest mb-4">Explore</h5>
-          <ul className="space-y-3">
-            <li><Link href="/" className="hover:text-[#800000] transition-colors">Home</Link></li>
-            <li><Link href="/about" className="hover:text-[#800000] transition-colors">About Us</Link></li>
-            <li><Link href="/contact" className="hover:text-[#800000] transition-colors">Contact</Link></li>
-            <li><Link href="/faq" className="hover:text-[#800000] transition-colors">FAQs</Link></li>
-          </ul>
+        <DrawingLine className="bg-white/10 mb-8" />
+        
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium uppercase tracking-wider text-gray-600">
+           <p>&copy; {new Date().getFullYear()} Al Fateen Services. All rights reserved.</p>
+           <div className="flex gap-6">
+              <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+           </div>
         </div>
-
-        {/* Column 3: Cleaning */}
-        <div>
-          <h5 className="text-white font-bold uppercase tracking-widest mb-4">Cleaning</h5>
-          <ul className="space-y-3">
-            <li><a href="#villa-deep-clean" className="hover:text-[#800000] transition-colors">Residential Deep Clean</a></li>
-            <li><a href="#floor-care" className="hover:text-[#800000] transition-colors">Floor Polishing</a></li>
-            <li><a href="#glass-cleaning" className="hover:text-[#800000] transition-colors">Glass & Façade</a></li>
-            <li><a href="#pool-maintenance" className="hover:text-[#800000] transition-colors">Swimming Pools</a></li>
-          </ul>
-        </div>
-
-        {/* Column 4: Pest Control */}
-        <div>
-          <h5 className="text-white font-bold uppercase tracking-widest mb-4">Pest Control</h5>
-          <ul className="space-y-3">
-            <li><a href="#termite-control" className="hover:text-[#800000] transition-colors">Termite Defense</a></li>
-            <li><a href="#rodent-control" className="hover:text-[#800000] transition-colors">Rodent Control</a></li>
-            <li><a href="#insect-control" className="hover:text-[#800000] transition-colors">General De-bugging</a></li>
-            <li><a href="#bed-bugs" className="hover:text-[#800000] transition-colors">Bed Bug Removal</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <DrawingLine className="bg-white/10 mb-8" />
-      
-      <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium uppercase tracking-wider text-gray-600">
-         <p>&copy; {new Date().getFullYear()} Al Fateen Services. All rights reserved.</p>
-         <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
-         </div>
-      </div>
-    </WideContainer>
-  </footer>
-);
+      </WideContainer>
+    </footer>
+  );
+};
 
 // --- 7. MAIN CONTENT ---
 
@@ -312,7 +362,15 @@ export default function AlFateenContent() {
       <div className="relative h-screen w-full overflow-hidden bg-[#000000] text-white flex flex-col justify-center items-center text-center">
         <motion.div style={{ scale: heroScale }} className="absolute inset-0 opacity-60">
            <div className="absolute inset-0 bg-neutral-950/20" />
-           <img src="/images/ServicesIMG.png" alt="Pristine Surface" className="w-full h-full object-cover grayscale" />
+           {/* --- FIX 3: Optimized Hero Image with Priority & Quality --- */}
+           <Image 
+             src="/images/ServicesIMG.png" 
+             alt="Pristine Surface" 
+             fill
+             priority 
+             quality={90}
+             className="w-full h-full object-cover grayscale" 
+           />
         </motion.div>
 
         <motion.div style={{ y: heroTextY }} className="relative z-10 px-6 w-full max-w-5xl">
