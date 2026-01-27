@@ -1,0 +1,66 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./src/styles/Header.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************/
+/* ========================
+   1. The Header Container
+   ======================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  background-color: transparent; 
+  transition: all 0.3s ease;
+}
+
+/* Scrolled State (White BG) */
+.header.scrolled {
+  background-color: white; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================
+   2. Link Colors (NO INHERIT)
+   ======================== */
+
+/* CASE A: Default State (Transparent Header) -> White Text */
+.header .nav-link {
+  color: white; 
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* CASE B: Scrolled State (White Header) -> Black Text */
+.header.scrolled .nav-link {
+  color: black; 
+}
+
+/* CASE C: HOVER STATE (The Red Fix) */
+/* We target both states explicitly to override them */
+.header .nav-link:hover,
+.header.scrolled .nav-link:hover {
+  color: #DC2626 !important; /* Force Red */
+}
+
+/* ========================
+   3. The Red Underline Animation
+   ======================== */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #DC2626; 
+  transform: scaleX(0); 
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}

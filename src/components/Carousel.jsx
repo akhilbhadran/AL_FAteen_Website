@@ -8,14 +8,14 @@ const slides = [
   {
     // New Name
     imgMobile: '/images/mob-1.png',   
-    imgDesktop: '/images/img1.jpg', 
+    imgDesktop: '/images/img1.webp', 
     title: "Let's Make Your Space Shine",
     desc: 'Let our expert team bring a fresh, shining look to every corner.',
   },
   {
     // New Name
     imgMobile: '/images/mob-2.png',
-    imgDesktop: '/images/img2.jpg',
+    imgDesktop: '/images/img2.webp',
     title: 'Latest Equipment',
     desc: 'Expert cleaning and reliable pest control.',
   },
