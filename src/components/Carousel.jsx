@@ -7,22 +7,22 @@ import '../styles/carousel.css';
 const slides = [
   {
     // New Name
-    imgMobile: '/images/mob-1.png',   
+    imgMobile: '/images/mob-1.webp',   
     imgDesktop: '/images/img1.webp', 
     title: "Let's Make Your Space Shine",
     desc: 'Let our expert team bring a fresh, shining look to every corner.',
   },
   {
     // New Name
-    imgMobile: '/images/mob-2.png',
+    imgMobile: '/images/mob-2.webp',
     imgDesktop: '/images/img2.webp',
     title: 'Latest Equipment',
     desc: 'Expert cleaning and reliable pest control.',
   },
   {
     // New Name
-    imgMobile: '/images/mob-3.png',
-    imgDesktop: '/images/img3.jpg',
+    imgMobile: '/images/mob-3.webp',
+    imgDesktop: '/images/img3.webp',
     title: 'Cleaning Excellence!',
     desc: 'We go above and beyond to deliver impeccable results every time.',
   },
@@ -196,6 +196,12 @@ export default function HomePage() {
             />
           ))}
         </div>
+
+        {/* HIDDEN PRE-LOADER */}
+<div className="hidden">
+  <Image src={slides[(current + 1) % slides.length].imgDesktop} alt="preload" width={10} height={10} />
+  <Image src={slides[(current + 1) % slides.length].imgMobile} alt="preload" width={10} height={10} />
+</div>
 
       </section>
     </main>

@@ -17,7 +17,7 @@ const features = [
     label: "Legacy",
     title: "15 Years of Excellence",
     desc: "Founded under the leadership of Mr. Mansoor Saed Suroor Alwali. We bring military-grade discipline and over a decade of operational mastery.",
-    img: "/images/about-hero-bg.jpg", 
+    img: "/images/about-hero-bg.webp", 
     icon: Award,
   },
   {
@@ -25,7 +25,7 @@ const features = [
     label: "Leadership",
     title: "Military Precision",
     desc: "Led by a UAE Armed Forces Navigator. We operate with a level of discipline, punctuality, and attention to detail that standard companies cannot match.",
-    img: "/images/leadership.png", 
+    img: "/images/leadership.webp", 
     icon: Star,
   },
   {
@@ -33,7 +33,7 @@ const features = [
     label: "Technology",
     title: "Eco-Friendly Science",
     desc: "Advanced Integrated Pest Management (IPM). Tough on impurities, completely safe for children, pets, and your sanctuary.",
-    img: "/images/_New.png", 
+    img: "/images/service-pest_New.webp", 
     icon: Leaf,
   },
   {
@@ -41,7 +41,7 @@ const features = [
     label: "Flexibility",
     title: "On Your Schedule",
     desc: "We adapt to your lifestyle. Whether strictly daily maintenance or bespoke monthly contracts, our schedule revolves around yours.",
-    img: "/images/cleaning-office.jpg", 
+    img: "/images/cleaning-office.webp", 
     icon: Clock,
   },
   {
@@ -49,7 +49,7 @@ const features = [
     label: "Trust",
     title: "Municipality Approved",
     desc: "Fully licensed and compliant with strict UAE regulations. We use only approved, safe materials to ensure the highest standards of health.",
-    img: "/images/service-cleaning.png", 
+    img: "/images/service-cleaning.webp", 
     icon: ShieldCheck,
   },
 ];
