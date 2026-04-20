@@ -1,5 +1,5 @@
 {
-  "name": "al_fateen_site",
+  "name": "al-fateen-site",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-04-20",
   "compatibility_flags": ["nodejs_compat"],
