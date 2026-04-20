@@ -14,7 +14,7 @@ import "../global.css";
 // --- FIX 1: IMPORT REAL NEXT.JS IMAGE COMPONENT ---
 import Image from "next/image";
 
-// --- FIX 2: IMPORT FONTS PROPERLY (If not already in layout.js) ---
+// --- FIX 2: IMPORT FONTS PROPERLY ---
 import { Playfair_Display, Manrope } from 'next/font/google';
 const playfair = Playfair_Display({ subsets: ['latin'] });
 const manrope = Manrope({ subsets: ['latin'] });
@@ -44,12 +44,12 @@ function CinematicImage({ src, alt }) {
   return (
     <div ref={ref} className="relative w-full h-[400px] lg:h-[500px] overflow-hidden rounded-2xl bg-slate-200 shadow-xl">
       <motion.div style={{ y, scale: 1.1 }} className="absolute inset-0 w-full h-[120%] -top-[10%]">
-        {/* Optimized Cinematic Image */}
         <Image 
           src={src} 
           alt={alt} 
           fill 
           className="object-cover"
+          // IMPROVEMENT: Restricting sizes helps the browser download smaller versions on mobile
           sizes="(max-width: 768px) 100vw, 50vw"
         />
       </motion.div>
@@ -57,7 +57,6 @@ function CinematicImage({ src, alt }) {
   );
 }
 
-// Standard Link component
 const Link = ({ href, children, className, ...props }) => (
   <a href={href} className={className} {...props}>
     {children}
@@ -76,13 +75,12 @@ export default function AlFateenFinal() {
       <section className="relative h-screen min-h-[600px] w-full overflow-hidden bg-black flex items-center justify-center">
         <motion.div style={{ y: heroY }} className="absolute inset-0 z-0">
            <div className="absolute inset-0 bg-neutral-950/20 z-10" />
-           {/* --- FIX 3: HERO IMAGE OPTIMIZED FOR SPEED --- */}
            <Image 
              src="/images/hero-clean-villa.png" 
              alt="Al Fateen Cleaning Services" 
              fill 
-             priority={true} // Downloads immediately
-             quality={90}    // High quality for large screen
+             priority={true} // IMPROVEMENT: High priority pre-load
+             quality={90}    
              className="object-cover opacity-60" 
            />
            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/40 z-10"></div>
@@ -131,7 +129,8 @@ export default function AlFateenFinal() {
                </FadeUp>
             </div>
             <div>
-               <CinematicImage src="/images/leadership-portrait 2.png" alt="Mr. Mansoor Saed Suroor Alwali" />
+               {/* IMPROVEMENT: Using the renamed filename without the space */}
+               <CinematicImage src="/images/leadership-portrait-2.png" alt="Mr. Mansoor Saed Suroor Alwali" />
             </div>
          </div>
       </section>
@@ -180,10 +179,8 @@ export default function AlFateenFinal() {
                </div>
             </FadeUp>
 
-            {/* SPLIT GATEWAY CARDS - Link to /services top */}
             <div className="grid md:grid-cols-2 gap-6 lg:gap-12">
                
-               {/* Card 1: Cleaning */}
                <FadeUp delay={0.1}>
                   <Link href="/services" className="group block relative h-[350px] w-full overflow-hidden rounded-3xl bg-white shadow-lg border border-slate-200 hover:shadow-2xl transition-all duration-500">
                      <div className="absolute inset-0 bg-gradient-to-br from-white via-slate-50 to-slate-200 group-hover:scale-105 transition-transform duration-700"></div>
@@ -204,7 +201,6 @@ export default function AlFateenFinal() {
                   </Link>
                </FadeUp>
 
-               {/* Card 2: Pest Control */}
                <FadeUp delay={0.2}>
                   <Link href="/services" className="group block relative h-[350px] w-full overflow-hidden rounded-3xl bg-[#151515] shadow-lg hover:shadow-2xl transition-all duration-500">
                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-slate-800 to-[#0a0a0a] group-hover:scale-105 transition-transform duration-700"></div>
@@ -227,7 +223,6 @@ export default function AlFateenFinal() {
 
             </div>
 
-            {/* VISUAL FLOW CONNECTOR */}
             <FadeUp delay={0.4}>
                <div className="mt-16 flex flex-col items-center justify-center opacity-60 hover:opacity-100 transition-opacity">
                   <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500 mb-2">
@@ -312,6 +307,11 @@ export default function AlFateenFinal() {
 
      <ZoomOutGallery />
 
+     {/* IMPROVEMENT: Background pre-load for the leadership portrait used earlier */}
+     <div className="hidden" aria-hidden="true">
+        <Image src="/images/leadership-portrait-2.png" alt="preload" width={10} height={10} />
+     </div>
+
      {/* ================= 7. FOOTER ================= */}
       <footer className="bg-[#0a0a0a] text-white pt-24 pb-8 overflow-hidden relative">
         <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
@@ -344,10 +344,8 @@ export default function AlFateenFinal() {
              {/* RIGHT SIDE: NAVIGATION LINKS */}
              <div className="lg:col-span-8 flex flex-col justify-between">
                 
-                {/* Links Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-12">
                    
-                   {/* Col 1: Explore */}
                    <div>
                       <h4 className="text-xs font-bold uppercase tracking-widest text-red-900 mb-6">Explore</h4>
                       <ul className="space-y-4 text-sm text-slate-400">
@@ -358,7 +356,6 @@ export default function AlFateenFinal() {
                       </ul>
                    </div>
 
-                   {/* Col 2: Restoration - DIRECT LINKS TO SERVICES PAGE SECTIONS */}
                    <div>
                       <h4 className="text-xs font-bold uppercase tracking-widest text-red-900 mb-6">Restoration</h4>
                       <ul className="space-y-4 text-sm text-slate-400">
@@ -369,7 +366,6 @@ export default function AlFateenFinal() {
                       </ul>
                    </div>
 
-                   {/* Col 3: Defense - DIRECT LINKS TO SERVICES PAGE SECTIONS */}
                    <div>
                       <h4 className="text-xs font-bold uppercase tracking-widest text-red-900 mb-6">Defense</h4>
                       <ul className="space-y-4 text-sm text-slate-400">
@@ -381,7 +377,6 @@ export default function AlFateenFinal() {
                    </div>
                 </div>
 
-                {/* CTA Button */}
                 <div className="flex justify-start md:justify-end">
                     <Link href="/contact" className="group w-full md:w-auto bg-white text-black px-8 py-4 rounded-full flex items-center justify-between md:justify-center gap-4 hover:bg-red-900 hover:text-white transition-all duration-500">
                     <span className="text-base font-bold uppercase tracking-widest">Commission a Service</span>
