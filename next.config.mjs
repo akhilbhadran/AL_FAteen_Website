@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Your existing config or leave empty
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
