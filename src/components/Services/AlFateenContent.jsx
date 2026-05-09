@@ -364,7 +364,7 @@ export default function AlFateenContent() {
            <div className="absolute inset-0 bg-neutral-950/20" />
            {/* --- FIX 3: Optimized Hero Image with Priority & Quality --- */}
            <Image 
-             src="/images/ServicesIMG.png" 
+             src="/images/ServicesIMG.webp" 
              alt="Pristine Surface" 
              fill
              priority 
@@ -441,7 +441,7 @@ export default function AlFateenContent() {
           description="We care for your floors in the best manner to maintain and restore their original shine."
           visualType="Polishing"
           icon={Layers}
-          image="/images/cleaning-floor2.png" 
+          image="/images/cleaning-floor2.webp" 
           features={["Marble Polishing", "Granite & Ceramic Care", "Wooden Floor Restoration", "Shine Maintenance"]}
           onBookClick={() => scrollToContact("Floor Restoration")}
         />
@@ -452,7 +452,7 @@ export default function AlFateenContent() {
           description="General cleaning of villas including newly constructed units. We handle upholstery shampooing."
           visualType="Villas"
           icon={Sparkles}
-          image="/images/cleaning-villa2.png"
+          image="/images/cleaning-villa2.webp"
           features={["General Villa Cleaning", "Upholstery Shampooing", "New Construction Deep Clean", "House Cleaning Service"]}
           onBookClick={() => scrollToContact("Residential Cleaning")}
         />
@@ -463,7 +463,7 @@ export default function AlFateenContent() {
           description="Professional glass cleaning for residential and commercial buildings."
           visualType="Clarity"
           icon={ScanLine}
-          image="/images/cleaning-glass.png"
+          image="/images/cleaning-glass.webp"
           features={["Interior Glass Cleaning", "Exterior Façade Cleaning", "Streak-Free Finish", "Building Maintenance"]}
           onBookClick={() => scrollToContact("Glass Cleaning")}
         />
@@ -474,7 +474,7 @@ export default function AlFateenContent() {
           description="We provide contract cleaning services for offices suited to your convenience."
           visualType="Corporate"
           icon={Warehouse}
-          image="/images/cleaning-office2.png"
+          image="/images/cleaning-office2.webp"
           features={["Annual Contracts", "Office Sanitation", "Flexible Scheduling", "Janitorial Staffing"]}
           onBookClick={() => scrollToContact("Corporate Contract")}
         />
@@ -485,7 +485,7 @@ export default function AlFateenContent() {
           description="Complete swimming pool cleaning and water balance maintenance."
           visualType="Aquatic"
           icon={Waves}
-          image="/images/cleaning-pool.png"
+          image="/images/cleaning-pool.webp"
           features={["Water Chemical Balancing", "Debris Vacuuming", "Tile Scrubbing", "Filter Maintenance"]}
           onBookClick={() => scrollToContact("Pool Maintenance")}
         />
@@ -530,7 +530,7 @@ export default function AlFateenContent() {
            description="We offer pre-construction and post-construction treatments. This includes soil treatment and drill & inject methods."
            visualType="Structural"
            icon={Factory}
-           image="/images/pest-termite-drill.png" 
+           image="/images/pest-termite-drill.webp" 
            features={["Pre-Construction (Soil)", "Post-Construction (Drill)", "Foundation Barriers", "Partition Wall Treatment"]}
            onBookClick={() => scrollToContact("Termite Control")}
          />
@@ -542,7 +542,7 @@ export default function AlFateenContent() {
            description="We use Pulse Baiting Systems (Rodent Bait Stations) and mechanical traps to control populations."
            visualType="Protection"
            icon={ShieldCheck}
-           image="/images/pest-rodent-station.png" 
+           image="/images/pest-rodent-station.webp" 
            features={["Pulse Baiting System", "Mechanical Traps", "Entry Point Sealing", "Perimeter Defense"]}
            onBookClick={() => scrollToContact("Rodent Control")}
          />
@@ -554,7 +554,7 @@ export default function AlFateenContent() {
            description="Contract-based de-bugging for labor accommodations. We target Cockroaches, Bed bugs, Ants, and Flies."
            visualType="Hygiene"
            icon={Bug}
-           image="/images/pest-general.png" 
+           image="/images/pest-general.webp" 
            features={["Labor Accommodation", "Bed Bug Eradication", "Cockroach Gel Treatment", "Fly Control"]}
            onBookClick={() => scrollToContact("General De-bugging")}
          />

@@ -112,7 +112,7 @@ export default function AboutPage() {
             >
               <div className="absolute inset-0 bg-gray-200 rounded-b-[2rem] lg:rounded-[2.5rem] shadow-2xl overflow-hidden group">
                 <img
-                  src="/images/Team.png"
+                  src="/images/Team.webp"
                   alt="Al Fateen Team"
                   className="w-full h-full object-cover transition-transform duration-[1.8s] ease-out group-hover:scale-105"
                 />

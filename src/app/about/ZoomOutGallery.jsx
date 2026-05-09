@@ -8,35 +8,35 @@ const galleryItems = [
   { 
     id: 1, 
     // CHANGE THIS: point to your file name in the public folder
-    src: "/images/restoration-main.png", 
+    src: "/images/restoration-main.webp", 
     alt: "Main Restoration", 
     // Mobile: Row 1-7 (Top Half), Desktop: Row 2-9 (Center)
     class: "col-start-1 col-end-13 row-start-1 row-end-7 md:col-start-4 md:col-end-10 md:row-start-2 md:row-end-9 z-20" 
   },
   { 
     id: 2, 
-    src: "/images/detail-tall.png", 
+    src: "/images/detail-tall.webp", 
     alt: "Tall Detail", 
     // Mobile: Bottom Left (Visible), Desktop: Top Right
     class: "block col-start-1 col-end-7 row-start-10 row-end-13 md:col-start-10 md:col-end-13 md:row-start-1 md:row-end-6 z-10" 
   },
   { 
     id: 3, 
-    src: "/images/detail-wide.png", 
+    src: "/images/detail-wide.webp", 
     alt: "Wide Detail", 
     // Mobile: Middle Strip, Desktop: Bottom Center
     class: "col-start-1 col-end-13 row-start-7 row-end-10 md:col-start-4 md:col-end-9 md:row-start-9 md:row-end-13 z-10" 
   },
   { 
     id: 4, 
-    src: "/images/detail-small-1.png", 
+    src: "/images/detail-small-1.webp", 
     alt: "Small Detail Left", 
     // Mobile: Hidden (Too crowded), Desktop: Left Middle
     class: "hidden md:block col-start-1 col-end-4 row-start-4 row-end-9 z-10" 
   },
   { 
     id: 5, 
-    src: "/images/detail-small-2.png", 
+    src: "/images/detail-small-2.webp", 
     alt: "Small Detail Right", 
     // Mobile: Bottom Right (Visible), Desktop: Bottom Right
     class: "block col-start-7 col-end-13 row-start-10 row-end-13 md:col-start-10 md:col-end-13 md:row-start-7 md:row-end-12 z-20" 

@@ -10,7 +10,7 @@ const leaders = [
     name: "Mr. Mansoor",
     lastName: "Saed Suroor Alwahi",
     role: "Founder & Managing Director",
-    image: "/images/chairman.png", 
+    image: "/images/chairman.webp", 
     quote: "Discipline is the bridge between goals and accomplishment.",
     bio: (
       <>
@@ -39,7 +39,7 @@ const leaders = [
     name: "Mr. Thomas",
     lastName: "",
     role: "Administrative Director",
-    image: "/images/thomas.jpg", 
+    image: "/images/thomas.webp", 
     bio: (
       <>
         <p className="mb-4">

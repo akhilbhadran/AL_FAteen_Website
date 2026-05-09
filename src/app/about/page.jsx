@@ -76,7 +76,7 @@ export default function AlFateenFinal() {
         <motion.div style={{ y: heroY }} className="absolute inset-0 z-0">
            <div className="absolute inset-0 bg-neutral-950/20 z-10" />
            <Image 
-             src="/images/hero-clean-villa.png" 
+             src="/images/hero-clean-villa.webp" 
              alt="Al Fateen Cleaning Services" 
              fill 
              priority={true} // IMPROVEMENT: High priority pre-load
@@ -130,7 +130,7 @@ export default function AlFateenFinal() {
             </div>
             <div>
                {/* IMPROVEMENT: Using the renamed filename without the space */}
-               <CinematicImage src="/images/leadership-portrait-2.png" alt="Mr. Mansoor Saed Suroor Alwali" />
+               <CinematicImage src="/images/leadership-portrait-2.webp" alt="Mr. Mansoor Saed Suroor Alwali" />
             </div>
          </div>
       </section>
@@ -309,7 +309,7 @@ export default function AlFateenFinal() {
 
      {/* IMPROVEMENT: Background pre-load for the leadership portrait used earlier */}
      <div className="hidden" aria-hidden="true">
-        <Image src="/images/leadership-portrait-2.png" alt="preload" width={10} height={10} />
+        <Image src="/images/leadership-portrait-2.webp" alt="preload" width={10} height={10} />
      </div>
 
      {/* ================= 7. FOOTER ================= */}

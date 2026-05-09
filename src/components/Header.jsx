@@ -76,7 +76,7 @@ function Header() {
             onClick={() => setIsMobileMenuOpen(false)}
           >
             <Image
-              src="/images/logo.png"
+              src="/images/logo.webp"
               alt="Logo"
               fill
               priority

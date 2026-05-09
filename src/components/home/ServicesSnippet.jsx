@@ -12,7 +12,7 @@ const cleaningServices = [
     title: "Floor Care & Restoration", 
     desc: "Expert restoration for Marble, Granite, Ceramic & Wood.", 
     icon: "✨", 
-    img: "/images/cleaning-floor.png" 
+    img: "/images/cleaning-floor.webp" 
   },
   { 
     id: 1, 
@@ -20,7 +20,7 @@ const cleaningServices = [
     title: "Residential Services", 
     desc: "Villas, upholstery shampooing & deep cleaning.", 
     icon: "🏡", 
-    img: "/images/cleaning-villa.png" 
+    img: "/images/cleaning-villa.webp" 
   },
   { 
     id: 2, 
@@ -28,7 +28,7 @@ const cleaningServices = [
     title: "Glass & Façade", 
     desc: "Streak-free cleaning for windows and exteriors.", 
     icon: "🪟", 
-    img: "/images/cleaning-glass.png" 
+    img: "/images/cleaning-glass.webp" 
   },
   { 
     id: 3, 
@@ -36,7 +36,7 @@ const cleaningServices = [
     title: "Commercial Contract", 
     desc: "Daily or weekly office maintenance packages.", 
     icon: "🏢", 
-    img: "/images/cleaning-office.png" 
+    img: "/images/cleaning-office.webp" 
   },
   { 
     id: 4, 
@@ -44,7 +44,7 @@ const cleaningServices = [
     title: "Swimming Pools", 
     desc: "Hygienic maintenance for safe, crystal-clear water.", 
     icon: "🏊", 
-    img: "/images/cleaning-pool.png" 
+    img: "/images/cleaning-pool.webp" 
   },
 ];
 
@@ -56,7 +56,7 @@ const pestServices = [
     subtitle: "Structural", 
     desc: "Pre & Post construction protection for foundations.", 
     icon: "🐜", 
-    img: "/images/pest-termite.png" 
+    img: "/images/pest-termite.webp" 
   },
   { 
     id: 1, 
@@ -65,7 +65,7 @@ const pestServices = [
     subtitle: "Perimeter", 
     desc: "Advanced stations to keep property rodent-free.", 
     icon: "🐁", 
-    img: "/images/pest-rodent.png" 
+    img: "/images/pest-rodent.webp" 
   },
   { 
     id: 2, 
@@ -74,7 +74,7 @@ const pestServices = [
     subtitle: "Hygiene", 
     desc: "Control of Cockroaches, Bed bugs, Ants & Flies.", 
     icon: "🦟", 
-    img: "/images/pest-insect.png" 
+    img: "/images/pest-insect.webp" 
   },
 ];
 
