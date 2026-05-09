@@ -20,7 +20,6 @@ import { submitContactForm } from "../../app/actions/contact";
 import Header from "../Header";
 
 // --- 1. HELPER COMPONENTS ---
-
 const CinematicReveal = ({ children, delay = 0, className = "" }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-10% 0px" });
@@ -32,6 +31,27 @@ const CinematicReveal = ({ children, delay = 0, className = "" }) => {
       animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
       transition={{ duration: 0.8, ease: "easeOut", delay: delay }}
       className={className}
+      // Add this line to force hardware acceleration
+      style={{ transform: "translateZ(0)", willChange: "transform, opacity, filter" }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+// --- HIGH PERFORMANCE IMAGE ANIMATION ---
+const HighPerformanceImageReveal = ({ children, delay = 0, className = "" }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-5% 0px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: delay }}
+      className={className}
+      style={{ willChange: "transform, opacity" }}
     >
       {children}
     </motion.div>
@@ -121,7 +141,7 @@ const ServiceVisual = ({ type, icon: Icon, image }) => {
             alt={type} 
             fill
             sizes="(max-width: 768px) 100vw, 50vw" // Tells browser to load smaller version on mobile
-            className="object-cover grayscale-0 opacity-80 group-hover:scale-105 group-hover:opacity-30 transition-all duration-[1.5s] ease-out" 
+            className="object-cover grayscale-0 opacity-80 group-hover:scale-105 transition-transform duration-1000 ease-out" 
           />
           <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-700" />
         </div>
@@ -203,9 +223,9 @@ const ServiceRow = ({ id, title, description, features, visualType, icon, image,
         </div>
 
         <div className="lg:col-span-5 order-1 lg:order-2">
-          <CinematicReveal delay={0.1}>
+          <HighPerformanceImageReveal delay={0.1}>
              <ServiceVisual type={visualType} icon={icon} image={image} />
-          </CinematicReveal>
+          </HighPerformanceImageReveal>
         </div>
       </div>
     </WideContainer>
