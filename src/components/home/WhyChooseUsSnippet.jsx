@@ -25,7 +25,7 @@ const features = [
     label: "Leadership",
     title: "Military Precision",
     desc: "Led by a UAE Armed Forces Navigator. We operate with a level of discipline, punctuality, and attention to detail that standard companies cannot match.",
-    img: "/images/leadership.webp", 
+    img: "/images/thomas.webp", 
     icon: Star,
   },
   {
