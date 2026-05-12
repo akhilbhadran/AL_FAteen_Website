@@ -82,18 +82,18 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-wider text-red-200 mb-0.5 group-hover:text-white transition-colors">Call Us Directly</h4>
-                  <p className="text-white font-serif text-2xl md:text-3xl tracking-wide font-medium">+971 50 123 4567</p>
+                  <p className="text-white font-serif text-2xl md:text-3xl tracking-wide font-medium">+971 52 832 6933</p>
                 </div>
               </a>
 
               {/* Email */}
-              <a href="mailto:info@alfateen.ae" className="flex items-center gap-6 group cursor-pointer">
+              <a href="mailto:alfacleaning.pest@gmail.com" className="flex items-center gap-6 group cursor-pointer">
                 <div className="w-14 h-14 rounded-xl bg-white/10 border border-white/30 flex items-center justify-center text-white group-hover:bg-white group-hover:text-red-900 group-hover:scale-105 transition-all duration-300 shadow-lg backdrop-blur-sm">
                   <Mail size={24} />
                 </div>
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-wider text-red-200 mb-0.5 group-hover:text-white transition-colors">Email Us</h4>
-                  <p className="text-white font-serif text-xl md:text-2xl tracking-wide font-medium">info@alfateen.ae</p>
+                  <p className="text-white font-serif text-xl md:text-2xl tracking-wide font-medium">alfacleaning.pest@gmail.com</p>
                 </div>
               </a>
 
@@ -105,7 +105,7 @@ export default function ContactSection() {
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-wider text-red-200 mb-0.5 group-hover:text-white transition-colors">Headquarters</h4>
                   <p className="text-white font-serif text-xl md:text-2xl tracking-wide font-medium">
-                    Business Bay, Dubai
+                    P.O. Box: 35619, Ras Al Khaimah, Sheikh Rashid Bin Saeed Street
                   </p>
                 </div>
               </div>

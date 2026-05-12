@@ -107,15 +107,15 @@ export default function PremiumFooter() {
               <ul className="space-y-6 text-slate-600 font-medium">
                 <li className="flex gap-4 items-start group">
                     <MapPin className="text-red-800 shrink-0 mt-1" size={20} /> 
-                    <span className="group-hover:text-red-800 transition-colors">Business Bay, Dubai, United Arab Emirates</span>
+                    <span className="group-hover:text-red-800 transition-colors">P.O. Box: 35619, Ras Al Khaimah, Sheikh Rashid Bin Saeed Street, United Arab Emirates</span>
                 </li>
                 <li className="flex gap-4 items-center group">
                     <Phone className="text-red-800 shrink-0" size={20} /> 
-                    <span className="group-hover:text-red-800 transition-colors">+971 50 123 4567</span>
+                    <span className="group-hover:text-red-800 transition-colors">+971 52 832 6933</span>
                 </li>
                 <li className="flex gap-4 items-center group">
                     <Mail className="text-red-800 shrink-0" size={20} /> 
-                    <span className="group-hover:text-red-800 transition-colors">info@alfateen.ae</span>
+                    <span className="group-hover:text-red-800 transition-colors">alfacleaning.pest@gmail.com</span>
                 </li>
               </ul>
             </div>
