@@ -335,6 +335,7 @@ export default function AlFateenFinal() {
                    
                    <div className="space-y-2 text-slate-400">
                       <p className="flex items-center gap-2"><span className="text-red-900 font-bold">T:</span> 052-8326933</p>
+                      <p className="flex items-center gap-2"><span className="text-red-900 font-bold">T:</span> 07-2369071 (Landline)</p>
                       <p className="flex items-center gap-2"><span className="text-red-900 font-bold">E:</span> afcleaning.pest@gmail.com</p>
                       <p className="flex items-center gap-2"><span className="text-red-900 font-bold">L:</span> Dubai & Northern Emirates</p>
                    </div>

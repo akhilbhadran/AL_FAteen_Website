@@ -114,6 +114,10 @@ export default function PremiumFooter() {
                     <span className="group-hover:text-red-800 transition-colors">+971 52 832 6933</span>
                 </li>
                 <li className="flex gap-4 items-center group">
+                    <Phone className="text-red-800 shrink-0" size={20} /> 
+                    <span className="group-hover:text-red-800 transition-colors">07-2369071</span>
+                </li>
+                <li className="flex gap-4 items-center group">
                     <Mail className="text-red-800 shrink-0" size={20} /> 
                     <span className="group-hover:text-red-800 transition-colors">alfacleaning.pest@gmail.com</span>
                 </li>

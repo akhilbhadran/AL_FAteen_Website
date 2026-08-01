@@ -398,6 +398,9 @@ export default function PricingPageContent() {
                    <div className="flex items-center gap-3 text-red-100">
                       <Phone size={18} /> <span className="text-sm">+971 52 832 6933</span>
                     </div>
+                    <div className="flex items-center gap-3 text-red-100">
+                       <Phone size={18} /> <span className="text-sm">07-2369071</span>
+                     </div>
                 </div>
               </div>
 

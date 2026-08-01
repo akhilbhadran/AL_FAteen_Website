@@ -594,6 +594,13 @@ export default function AlFateenContent() {
                           </div>
                        </div>
                        <div className="flex items-center gap-4">
+                          <Phone className="text-[#800000]" size={24} />
+                          <div>
+                            <h4 className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400">Landline</h4>
+                            <a href="tel:072369071" className="block text-xl font-semibold hover:text-[#800000]">07-2369071</a>
+                          </div>
+                       </div>
+                       <div className="flex items-center gap-4">
                           <Mail className="text-[#800000]" size={24} />
                           <div>
                             <h4 className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400">Email</h4>

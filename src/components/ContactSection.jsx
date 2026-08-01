@@ -76,13 +76,24 @@ export default function ContactSection() {
             {/* Contact Items */}
             <div className="space-y-6">
               {/* Phone - OPTIMIZED: w-20 -> w-14 */}
-              <a href="tel:+971501234567" className="flex items-center gap-6 group cursor-pointer">
+              <a href="tel:+971528326933" className="flex items-center gap-6 group cursor-pointer">
                 <div className="w-14 h-14 rounded-xl bg-white/10 border border-white/30 flex items-center justify-center text-white group-hover:bg-white group-hover:text-red-900 group-hover:scale-105 transition-all duration-300 shadow-lg backdrop-blur-sm">
                   <Phone size={24} />
                 </div>
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-wider text-red-200 mb-0.5 group-hover:text-white transition-colors">Call Us Directly</h4>
                   <p className="text-white font-serif text-2xl md:text-3xl tracking-wide font-medium">+971 52 832 6933</p>
+                </div>
+              </a>
+
+              {/* Landline */}
+              <a href="tel:072369071" className="flex items-center gap-6 group cursor-pointer">
+                <div className="w-14 h-14 rounded-xl bg-white/10 border border-white/30 flex items-center justify-center text-white group-hover:bg-white group-hover:text-red-900 group-hover:scale-105 transition-all duration-300 shadow-lg backdrop-blur-sm">
+                  <Phone size={24} />
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-red-200 mb-0.5 group-hover:text-white transition-colors">Landline</h4>
+                  <p className="text-white font-serif text-2xl md:text-3xl tracking-wide font-medium">07-2369071</p>
                 </div>
               </a>
 
